@@ -1,2 +1,5 @@
 local norminette = require("highlight-norminette")
 norminette.setup()
+vim.api.nvim_create_user_command("NormeEnable", norminette.enable(), {})
+vim.api.nvim_create_user_command("NormeDisable", norminette.disable(), {})
+vim.api.nvim_create_user_command("NormeToggle", norminette.toggle(), {})
