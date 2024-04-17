@@ -1,10 +1,10 @@
 local M = {}
 
 M.setup = function ()
-    M.namespace = vim.api.nvim_create_namespace("norminette")
+    M.namespace = vim.api.nvim_create_namespace("highlight-norminette")
 
     vim.api.nvim_create_autocmd({"BufWritePost", "BufEnter"}, {
-        group = vim.api.nvim_create_augroup("Norminette", { clear = true }),
+        group = vim.api.nvim_create_augroup("Highlight-Norminette", { clear = true }),
         pattern = {"*.c", "*.h"},
         callback = M.check_current_buffer,
     })
