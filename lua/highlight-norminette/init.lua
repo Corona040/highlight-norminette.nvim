@@ -31,7 +31,6 @@ M.check_current_buffer = function ()
 			end
 		end
 		vim.diagnostic.set(M.namespace, 0, diagnostics)
-		vim.diagnostic.set(M.namespace, 0, diagnostics)
     end
 end
 
