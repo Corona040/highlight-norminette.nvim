@@ -17,17 +17,19 @@ end
 
 M.enable = function()
 	enable = true
+	M.check_current_buffer()
 end
 
 M.disable = function()
 	enable = false
+    vim.diagnostic.reset(M.namespace, 0)
 end
 
 M.toggle = function()
 	if enable then
-		enable = false
+		M.disable()
 	else
-		enable = true
+		M.enable()
 	end
 end
 
