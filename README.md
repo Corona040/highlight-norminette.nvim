@@ -1,2 +1,3 @@
 # norminette_linter
-A neovim linter to display norminette (42School norme) errors
+A neovim highlighter to display norminette (42School norme linter) errors.
+Requires norminette to be installed.
