@@ -1,2 +1,2 @@
-local norminette = require("nvim-norminette-linter")
+local norminette = require("highlight-norminette")
 norminette.setup()
