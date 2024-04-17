@@ -10,6 +10,9 @@ M.setup = function ()
         pattern = {"*.c", "*.h"},
         callback = M.check_current_buffer,
     })
+	vim.api.nvim_create_user_command("NormeEnable", M.enable, {})
+	vim.api.nvim_create_user_command("NormeDisable", M.disable, {})
+	vim.api.nvim_create_user_command("NormeToggle", M.toggle, {})
 end
 
 M.enable = function()
