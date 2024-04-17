@@ -20,6 +20,7 @@ M.check_current_buffer = function ()
     local output = vim.fn.systemlist(cmd)
     local exit_code = vim.v.shell_error
 
+	vim.diagnostic.config({ virtual_text = true })
     if (exit_code ~= 0) then
 		local diagnostics = {}
 		for i, normerr in ipairs(output) do
