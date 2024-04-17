@@ -21,16 +21,17 @@ M.check_current_buffer = function ()
     local exit_code = vim.v.shell_error
 
 	vim.diagnostic.config({ virtual_text = true })
-	local diagnostics = {}
-	for i, normerr in ipairs(output) do
-		if (i ~= 1) then
-			local diagnostic = vim.diagnostic.match(normerr, "%(line: +(%d+), col: +(%d+)%):	+(.*)$", {"lnum","col","message"})
-			diagnostic.message = "Norme error: " .. diagnostic.message
-			vim.fn.systemlist("echo " .. diagnostic.message .. " >> ~/Documents/lalalog")
-			table.insert(diagnostics, diagnostic)
+    if (exit_code ~= 0) then
+		local diagnostics = {}
+		for i, normerr in ipairs(output) do
+			if (i ~= 1) then
+				local diagnostic = vim.diagnostic.match(normerr, "%(line: +(%d+), col: +(%d+)%):	+(.*)$", {"lnum","col","message"})
+				diagnostic.message = "Norme error: " .. diagnostic.message
+				table.insert(diagnostics, diagnostic)
+			end
 		end
-	end
-	vim.diagnostic.set(M.namespace, 0, diagnostics)
+		vim.diagnostic.set(M.namespace, 0, diagnostics)
+    end
 end
 
 return M
