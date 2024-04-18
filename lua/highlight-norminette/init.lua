@@ -49,8 +49,8 @@ M.check_current_buffer = function ()
 			for i, normerr in ipairs(output) do
 				if (i ~= 1) then
 					local diagnostic = vim.diagnostic.match(normerr, "%(line: +(%d+), col: +(%d+)%):	+(.*)$", {"lnum","col","message"})
-					diagnostic.message = "Norme error: " .. diagnostic.message
 					if not (diagnostic == nil) then
+						diagnostic.message = "Norme error: " .. diagnostic.message
 						table.insert(diagnostics, diagnostic)
 					end
 				end
